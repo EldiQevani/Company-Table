@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "name": "John",
+    "surname": "Doe",
+    "gender": "Male",
+    "age": 30,
+    "workingYears": 5,
+    "department": "IT",
+    "email": "john@example.com"
+  },
+  {
+    "id": 2,
+    "name": "Alice",
+    "surname": "Smith",
+    "gender": "Female",
+    "age": 28,
+    "workingYears": 3,
+    "birthdate": "1995-11-20",
+    "department": "Finance",
+    "email": "alice@example.com"
+  },
+  {
+    "id": 3,
+    "name": "Bob",
+    "surname": "Johnson",
+    "gender": "Male",
+    "age": 35,
+    "workingYears": 10,
+    "birthdate": "1988-09-10",
+    "department": "Architecture",
+    "email": "bob@example.com"
+  }
+]
