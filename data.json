@@ -16,7 +16,6 @@
     "gender": "Female",
     "age": 28,
     "workingYears": 3,
-    "birthdate": "1995-11-20",
     "department": "Finance",
     "email": "alice@example.com"
   },
@@ -27,7 +26,6 @@
     "gender": "Male",
     "age": 35,
     "workingYears": 10,
-    "birthdate": "1988-09-10",
     "department": "Architecture",
     "email": "bob@example.com"
   }

@@ -41,13 +41,11 @@ fetch("data.json")
         departmentCell.textContent = worker.department;
         emailCell.textContent = worker.email;
 
-        // Add a modify button to the cell
         const modifyBtn = document.createElement("button");
         modifyBtn.classList.add("btn", "btn-primary", "btn-sm");
         modifyBtn.onclick = () => openModifyModal(worker);
         modifyBtn.textContent = "Modify";
 
-        // Create a cell to contain the button and append it to the row
         const modifyCell = row.insertCell(8);
         modifyCell.appendChild(modifyBtn);
       });
@@ -55,54 +53,62 @@ fetch("data.json")
 
     populateTable(filteredWorkers); // Initial population of the table with all workers
 
-    // Function to open the modify modal with worker details
     function openModifyModal(worker) {
+      console.log("worker object:", worker);
+
+      document.getElementById("modifyWorkerModal").style.display = "block";
+      console.log("openModifyModal called with worker:", worker);
       selectedWorkerId = worker.id;
       // Populate the modal fields with worker details
       document.getElementById("newName").value = worker.name;
+      console.log("newName set to:", worker.name);
       document.getElementById("newSurname").value = worker.surname;
-      document.getElementById("newAge").value = worker.age;
       document.getElementById("newGender").value = worker.gender;
+      document.getElementById("newAge").value = worker.age;
       document.getElementById("newWorkingYears").value = worker.workingYears;
       document.getElementById("newDepartment").value = worker.department;
       document.getElementById("newEmail").value = worker.email;
 
-      // Show the modal
-      $("#addWorkerModal").modal("show");
+      // Show the modify worker modal
+      $("#modifyWorkerModal").modal("show");
     }
 
-    function updateWorkersDetails() {
-      const newName = document.getElementById("newName").value;
-      const newSurname = document.getElementById("newSurname").value;
-      const newAge = document.getElementById("newAge").value;
-      const newGender = document.getElementById("newGender").value;
-      const newWorkingYears = document.getElementById("newWorkingYears").value;
-      const newDepartment = document.getElementById("newDepartment").value;
-      const newEmail = document.getElementById("newEmail").value;
+    const el = document.getElementById("modifyWorkerForm");
+    el.addEventListener("submit", function (event) {
+      event.preventDefault();
 
-      workers = workers.map((worker) => {
+      // Get values from the form
+      const newName = document.getElementById("newName").value.trim();
+      const newSurname = document.getElementById("newSurname").value.trim();
+      const newGender = document.getElementById("newGender").value.trim();
+      const newAge = document.getElementById("newAge").value.trim();
+      const newWorkingYears = document
+        .getElementById("newWorkingYears")
+        .value.trim();
+      const newDepartment = document
+        .getElementById("newDepartment")
+        .value.trim();
+      const newEmail = document.getElementById("newEmail").value.trim();
+
+      // Update the worker's details in the workers array
+      workers.forEach((worker) => {
         if (worker.id === selectedWorkerId) {
-          return {
-            ...worker,
-            name: newName,
-            surname: newSurname,
-            age: newAge,
-            gender: newGender,
-            workingYears: newWorkingYears,
-            department: newDepartment,
-            email: newEmail,
-          };
+          worker.name = newName;
+          worker.surname = newSurname;
+          worker.gender = newGender;
+          worker.age = newAge;
+          worker.workingYears = newWorkingYears;
+          worker.department = newDepartment;
+          worker.email = newEmail;
         }
-        return worker;
       });
 
-      populateTable(workers);
-      $("#addWorkerModal").modal("hide");
-    }
+      // Close the modify worker modal
+      $("#modifyWorkerModal").modal("hide");
 
-    window.onload = function () {
+      // Repopulate the table with updated data
       populateTable(workers);
-    };
+    });
 
     // Event listener for the search input
     searchInput.addEventListener("input", function (event) {

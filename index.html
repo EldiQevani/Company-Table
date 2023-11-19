@@ -117,8 +117,63 @@
           </div>
         </div>
       </div>
+
+    <!-- Modify Worker Modal -->
+    <div class="modal fade" id="modifyWorkerModal">
+ <div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4 class="modal-title">Modify Worker</h4>
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+    </div>
+    <div class="modal-body">
+      <!-- Form to modify a worker -->
+      <form id="modifyWorkerForm">
+        <div class="form-group">
+          <label for="newName">Name:</label>
+          <input type="text" class="form-control" id="newName" required>
+        </div>
+        <div class="form-group">
+          <label for="newSurname">Surname:</label>
+          <input type="text" class="form-control" id="newSurname">
+        </div>
+        <div class="form-group">
+          <label for="newAge">Age:</label>
+          <input type="number" class="form-control" id="newAge">
+        </div>
+        <div class="form-group">
+          <label for="newGender">Gender:</label>
+          <select id="newGender" class="form-control">
+            <option value="">Select Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="newWorkingYears">Working Years:</label>
+          <input type="number" class="form-control" id="newWorkingYears">
+        </div>
+        <div class="form-group">
+          <label for="newDepartment">Department:</label>
+          <select id="newDepartment" class="form-control">
+            <option value="">Select Department</option>
+            <option value="IT">IT</option>
+            <option value="FINANCE">FINANCE</option>
+            <option value="ARCHITECTURE">ARCHITECTURE</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="newEmail">Email:</label>
+          <input type="email" class="form-control" id="newEmail">
+        </div>
+        <button id="modifyWorkerButton" type="submit" class="btn btn-primary">Modify Worker</button>
+      </form>
     </div>
   </div>
+ </div>
+</div>
+
         <table id="workerTable" class="table">
         <thead>
           <tr>
@@ -134,10 +189,10 @@
         </thead>
         <tbody id="tableBody"></tbody>
       </table>
-
+ <script src="script.js"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <script src="script.js"></script>
+ 
   </body>
 </html>
